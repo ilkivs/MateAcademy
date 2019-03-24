@@ -2,7 +2,6 @@ package HomeWork.hw1;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class Task_1_4 {
 
@@ -43,5 +42,4 @@ public class Task_1_4 {
         result = taylorSeries(n - 1, x)+ Math.pow(x, n-1) / factorial(n-1);
         return result;
     }
-
 }
