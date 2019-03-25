@@ -10,8 +10,8 @@ public class Pizza {
     private boolean withDoubleCheese;
     private boolean withCorn;
     private boolean withSausage;
-    private int size; // f.e. 50 cm
-    private double price; // f.e. 80 UAH
+    private int size;
+    private double price;
 
     public String getName() {
         return name;

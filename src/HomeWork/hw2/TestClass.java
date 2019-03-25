@@ -5,7 +5,7 @@ package HomeWork.hw2;
  */
 
 public class TestClass {
-    //анонімний клас
+    // Anonymous class
     static Parent parent = new Parent() {
         @Override
         public void print() {
@@ -14,24 +14,24 @@ public class TestClass {
         }
     };
 
-    //вложений клас
+    // Nested class
     class Nested {
         public void print() {
             System.out.println("Nested class");
         }
     }
 
-    //внутрішній статичний клас
+    // Static nested class
     static class StaticNested {
         public void print() {
             System.out.println("StaticNested class");
         }
     }
 
-    //метод для локального класу
+    // Local class method
     void printLocal() {
 
-        //локальний клас
+        //л Local class
         class Local {
             public void print() {
                 System.out.println("Local class");

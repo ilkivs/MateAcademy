@@ -10,10 +10,12 @@ import static java.lang.System.arraycopy;
 
 public class SortUtils {
 
+    public static final int RANDOM_MULTIPLIER = 10;
+
     public static int[] initArray(int n) {
         int[] arr = new int[n];
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = (int) (Math.random() * 10);
+            arr[i] = (int) (Math.random() * RANDOM_MULTIPLIER);
         }
         return arr;
     }
@@ -32,17 +34,17 @@ public class SortUtils {
     }
 
     private static int[] merge(int[] a1, int[] a2) {
-        int[] a3 = new int[a1.length + a2.length];
+        int[] resultArr = new int[a1.length + a2.length];
         int i = 0, j = 0, k = 0;
         while ((i < a1.length) && (j < a2.length)) {
-            a3[k++] = (a1[i] <= a2[j]) ? a1[i++] : a2[j++];
+            resultArr[k++] = (a1[i] <= a2[j]) ? a1[i++] : a2[j++];
         }
         if (i < a1.length) {
-            arraycopy(a1, i, a3, k, a1.length - i);
+            arraycopy(a1, i, resultArr, k, a1.length - i);
         } else if (j < a2.length) {
-            arraycopy(a2, j, a3, k, a2.length - j);
+            arraycopy(a2, j, resultArr, k, a2.length - j);
         }
-        return a3;
+        return resultArr;
     }
 
     public static int[] mergeSort(int[] array, int lower, int upper) {

@@ -11,9 +11,9 @@ package HomeWork.hw2;
 */
 
 public final class Footballer implements Cloneable {
-    private final String name; //cant be changed
-    private String team; //can be changed
-    private double transferPrice; // $ millions || can be changed
+    private final String name;
+    private String team;
+    private double transferPrice;
 
     public Footballer(String name, String team, double transferPrice) {
         this.name = name;
@@ -29,21 +29,21 @@ public final class Footballer implements Cloneable {
         return team;
     }
 
-    public double gettransferPrice() {
+    public double getTransferPrice() {
         return transferPrice;
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
+    protected Object clone(){
         try {
             return super.clone();
         } catch (CloneNotSupportedException e) {
-            return new Footballer(getName(), getTeam(), gettransferPrice());
+            return new Footballer(getName(), getTeam(), getTransferPrice());
         }
     }
 
     @Override
     public String toString() {
-        return "Name: " + getName() + ", Team: " + getTeam() + ", Price: $" + gettransferPrice() + " m";
+        return "Name: " + getName() + ", Team: " + getTeam() + ", Price: $" + getTransferPrice() + " m";
     }
 }
