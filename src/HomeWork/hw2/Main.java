@@ -1,6 +1,5 @@
 package HomeWork.hw2;
 
-
 import java.util.Arrays;
 
 public class Main {
@@ -19,24 +18,27 @@ public class Main {
         System.out.println(pepperoni);
 
         System.out.println("===== Task 2.2 =====");
-        //тест анонімного класу
-        Task_2_2.parent.print();
-        //тест вложеного класу
-        Task_2_2.Nested nested = new Task_2_2().new Nested();
+        //Anonymous class test
+        TestClass.parent.print();
+        //Nested class test
+        TestClass.Nested nested = new TestClass().new Nested();
         nested.print();
-        //тест внутрішнього статичного класу
-        Task_2_2.StaticNested staticNested = new Task_2_2.StaticNested();
+        //Static Nested class test
+        TestClass.StaticNested staticNested = new TestClass.StaticNested();
         staticNested.print();
-        //тест локального класу
-        Task_2_2 Task_2_2 = new Task_2_2();
-        Task_2_2.printLocal();
+        //Local class test
+        TestClass TestClass = new TestClass();
+        TestClass.printLocal();
 
         System.out.println("===== Task 2.3 =====");
         System.out.println("1) Bubble sort");
-        int[] arr = SortUtils.initArray(5);
-        System.out.println(Arrays.toString(arr));
-        System.out.println(Arrays.toString(SortUtils.bubbleSort(arr)));
+        int[] arr1 = SortUtils.initArray(5);
+        System.out.println(Arrays.toString(arr1));
+        System.out.println(Arrays.toString(SortUtils.bubbleSort(arr1)));
         System.out.println("2) Merge sort");
+        int[] arr2 = SortUtils.initArray(5);
+        System.out.println(Arrays.toString(arr2));
+        System.out.println(Arrays.toString((SortUtils.mergeSort(arr2, 0, arr2.length))));
 
         System.out.println("===== Task 2.4 =====");
         Footballer task4 = new Footballer("C. Ronaldo", "Juventus", 100);

@@ -1,5 +1,9 @@
 package HomeWork.hw2;
 
+/*
+    Task 2.1
+ */
+
 public class Pizza {
     private String name;
     private boolean withPepper;

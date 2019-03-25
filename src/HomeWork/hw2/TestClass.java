@@ -1,6 +1,10 @@
 package HomeWork.hw2;
 
-public class Task_2_2 {
+/*
+    Task 2.2
+ */
+
+public class TestClass {
     //анонімний клас
     static Parent parent = new Parent() {
         @Override
