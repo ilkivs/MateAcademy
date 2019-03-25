@@ -1,12 +1,15 @@
 package HomeWork.hw1;
 
-//class describes car
-public class Task_1_7 implements Cloneable{
+/*
+    Task 1.7
+ */
+
+public class Car implements Cloneable {
     private String manufacturer;
     private String model;
     private int releaseYear;
 
-    public Task_1_7(String manufacturer, String model, int releaseYear) {
+    public Car(String manufacturer, String model, int releaseYear) {
         this.manufacturer = manufacturer;
         this.model = model;
         this.releaseYear = releaseYear;
@@ -28,8 +31,8 @@ public class Task_1_7 implements Cloneable{
     public Object clone() throws CloneNotSupportedException {
         try {
             return super.clone();
-        }catch (CloneNotSupportedException e) {
-            return new Task_1_7(getManufacturer(), getModel(), getReleaseYear());
+        } catch (CloneNotSupportedException e) {
+            return new Car(getManufacturer(), getModel(), getReleaseYear());
         }
     }
 
