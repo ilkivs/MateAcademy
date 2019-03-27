@@ -34,12 +34,8 @@ public final class Footballer implements Cloneable {
     }
 
     @Override
-    protected Object clone(){
-        try {
-            return super.clone();
-        } catch (CloneNotSupportedException e) {
-            return new Footballer(getName(), getTeam(), getTransferPrice());
-        }
+    protected Object clone() {
+        return new Footballer(getName(), getTeam(), getTransferPrice());
     }
 
     @Override
