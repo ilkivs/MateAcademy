@@ -11,6 +11,8 @@ public class MergeSort {
     private int[] firstArray;
     private int[] secondArray;
     private int[] resultArray;
+    private static final int RANDOM_BOUND_FOR_ARRAYS = 10;
+    private static final int RANDOM_BOUND_FOR_NUMBERS = 100;
 
     public MergeSort() {
         initArrays();
@@ -54,10 +56,6 @@ public class MergeSort {
         }
     }
 
-    private int min(int firstValue, int secondValue) {
-        return firstValue < secondValue ? firstValue : secondValue;
-    }
-
     public void printStartArrays() {
         System.out.println("First array:");
         System.out.println(Arrays.toString(firstArray));
@@ -70,19 +68,20 @@ public class MergeSort {
         System.out.println(Arrays.toString(resultArray));
     }
 
-    private void initArrays() {
+    private int[] createArray(){
         Random r = new Random();
-        int firstArrSize = r.nextInt(10);
-        int secondArrSize = r.nextInt(10);
-        firstArray = new int[firstArrSize];
-        secondArray = new int[secondArrSize];
+        int arrSize = r.nextInt(RANDOM_BOUND_FOR_ARRAYS);
+        int[] array = new int[arrSize];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = r.nextInt(RANDOM_BOUND_FOR_NUMBERS);
+        }
+        return array;
+    }
+
+    private void initArrays() {
+        firstArray = createArray();
+        secondArray = createArray();
         resultArray = new int[firstArray.length + secondArray.length];
-        for (int i = 0; i < firstArray.length; i++) {
-            firstArray[i] = r.nextInt(100);
-        }
-        for (int i = 0; i < secondArray.length; i++) {
-            secondArray[i] = r.nextInt(100);
-        }
         Arrays.sort(firstArray);
         Arrays.sort(secondArray);
     }
