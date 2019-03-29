@@ -1,50 +1,111 @@
 package HomeWork.hw4;
 
-public class MyArrayList implements MyList {
+import java.util.Arrays;
 
+public class MyArrayList<T> implements MyList<T> {
+    private T[] array;
+    private int size;
+    private int capacity;
 
-    @Override
-    public void add(Object value) {
+    public MyArrayList() {
+        size = 0;
+        capacity = 10;
+        array = (T[]) new Object[capacity];
+    }
 
+    private void increaseCapacity() {
+        capacity = capacity * 3 / 2;
+        array = Arrays.copyOf(array, capacity);
     }
 
     @Override
-    public void add(Object value, int index) {
-
+    public void add(T value) {
+        if (size == capacity) {
+            increaseCapacity();
+        }
+        array[size] = value;
+        size++;
     }
 
     @Override
-    public void addAll(MyList list) {
-
+    public void add(T value, int index) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException();
+        }
+        if (size >= capacity) {
+            increaseCapacity();
+        }
+        System.arraycopy(array, index, array, index + 1, size - index);
+        array[index] = value;
+        size++;
     }
 
     @Override
-    public Object get(int index) {
-        return null;
+    public void addAll(MyList<T> list) {
+        T[] addArray = list.toArray();
+        while (list.size() + this.size() > capacity) {
+            increaseCapacity();
+        }
+        for (int i = 0; i < list.size(); i++) {
+            add(addArray[i]);
+        }
     }
 
     @Override
-    public void set(Object value, int index) {
-
+    public T get(int index) {
+        isIndexCorrect(index);
+        return array[index];
     }
 
     @Override
-    public Object remove(int index) {
-        return null;
+    public void set(T value, int index) {
+        isIndexCorrect(index);
+        array[index] = value;
     }
 
     @Override
-    public Object remove(Object o) {
+    public T remove(int index) {
+        isIndexCorrect(index);
+        T removeItem = array[index];
+        System.arraycopy(array, index + 1, array, index, size - index -1);
+        array[size - 1] = null;
+        size--;
+        return removeItem;
+    }
+
+    @Override
+    public T remove(T t) {
+        for (int i = 0; i < size; i++) {
+            if (t.equals(array[i])) {
+                return remove(i);
+            }
+        }
         return null;
     }
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return size == 0;
+    }
+
+    public void isIndexCorrect(int index){
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
+    }
+
+    @Override
+    public T[] toArray() {
+        return Arrays.copyOf(array, size());
+    }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(array);
     }
 }

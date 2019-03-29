@@ -1,23 +1,21 @@
 package HomeWork.hw4;
 
-import java.util.LinkedList;
-
 public class Main {
 
     public static void main(String[] args) {
-        MyArrayList myArrayList = new MyArrayList();
+        System.out.println("===== MyLinkedList =====");
         MyLinkedList<String> myLinkedList = new MyLinkedList<>();
-        myLinkedList.add("Привет");
-        myLinkedList.add("мой");
-        myLinkedList.add("друг");
-        myLinkedList.add("Пока");
-        myLinkedList.add("addNode", 0);
-        myLinkedList.add("addNode2", 5);
-        System.out.println(myLinkedList.get(5));
-        System.out.println(myLinkedList.isEmpty());
-        System.out.println("size = " + myLinkedList.size());
+        myLinkedList.add("Hi!");
+        myLinkedList.add("My");
+        myLinkedList.add("name");
+        myLinkedList.add("is");
+        myLinkedList.add("Sviatoslav");
+        myLinkedList.add("added", 0);
         System.out.println(myLinkedList);
-        System.out.println(myLinkedList.remove("addNode2"));
+        System.out.println("get(5) = " + myLinkedList.get(5));
+        System.out.println("isEmpty = " + myLinkedList.isEmpty());
+        System.out.println("size = " + myLinkedList.size());
+        System.out.println("Remove " + myLinkedList.remove("kis"));
         System.out.println(myLinkedList);
 
         MyLinkedList<String> myLinkedList2 = new MyLinkedList<>();
@@ -26,6 +24,28 @@ public class Main {
         myLinkedList2.add("new");
         myLinkedList2.add("LinkedList");
         myLinkedList.addAll(myLinkedList2);
+        System.out.println("addAll");
         System.out.println(myLinkedList);
+
+        System.out.println("\n===== MyArrayList =====");
+        MyArrayList<String> myArrayList1 = new MyArrayList<>();
+        MyArrayList<String> myArrayList2 = new MyArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            myArrayList1.add(String.valueOf(i));
+            myArrayList2.add(String.valueOf(-i));
+        }
+        myArrayList1.add("100", 10);
+        System.out.println(myArrayList1);
+        System.out.println("addAll");
+        myArrayList1.addAll(myArrayList2);
+        System.out.println(myArrayList1);
+        myArrayList1.add("added", 5);
+        System.out.println(myArrayList1);
+
+        System.out.println("get(7) = " + myArrayList1.get(7));
+        System.out.println("isEmpty = " + myArrayList1.isEmpty());
+        System.out.println("size = " + myArrayList1.size());
+        System.out.println("Remove " + myArrayList1.remove("-3"));
+        System.out.println(myArrayList1);
     }
 }

@@ -56,15 +56,14 @@ public class MyLinkedList<T> implements MyList<T> {
 
     @Override
     public void addAll(MyList<T> list) {
-        for (int i = 0; i < list.size(); i++){
+        for (int i = 0; i < list.size(); i++) {
             add(list.get(i));
         }
     }
 
     @Override
     public T get(int index) {
-        Node<T> getNode = getNode(index);
-        return getNode.value;
+        return getNode(index).value;
     }
 
     private Node<T> getNode(int index) {
@@ -98,16 +97,19 @@ public class MyLinkedList<T> implements MyList<T> {
             removeNode.next.prev = removeNode.prev;
             removeNode.prev.next = removeNode.next;
         }
-        return null;
+        return removeNode.value;
     }
 
     @Override
     public T remove(T t) {
         int currentIndex = 0;
         Node<T> removeNode = firstNode;
-        while (removeNode.value != t && currentIndex < size) {
+        while (removeNode.value != t) {
             removeNode = removeNode.next;
             currentIndex++;
+            if (currentIndex>size-2){
+                return null;
+            }
         }
         remove(currentIndex);
         return removeNode.value;
@@ -121,6 +123,15 @@ public class MyLinkedList<T> implements MyList<T> {
     @Override
     public boolean isEmpty() {
         return size == 0;
+    }
+
+    @Override
+    public T[] toArray() {
+        T[] array = (T[]) new Object[size];
+        for (int i = 0; i < size; i++) {
+            array[i] = get(i);
+        }
+        return array;
     }
 
     @Override

@@ -7,8 +7,9 @@ public interface MyList<T> {
     void addAll(MyList<T> list);
     T get(int index);
     void set(T value, int index);
-    T remove(int index); // возвращаем элемент, который удалили
-    T remove(T t); // удалять первый, который встретится
+    T remove(int index);
+    T remove(T t);
     int size();
     boolean isEmpty();
+    T[] toArray();
 }
