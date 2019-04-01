@@ -15,7 +15,7 @@ public class Main {
         System.out.println("get(5) = " + myLinkedList.get(5));
         System.out.println("isEmpty = " + myLinkedList.isEmpty());
         System.out.println("size = " + myLinkedList.size());
-        System.out.println("Remove " + myLinkedList.remove("kis"));
+        System.out.println("Remove " + myLinkedList.remove("is"));
         System.out.println(myLinkedList);
 
         MyLinkedList<String> myLinkedList2 = new MyLinkedList<>();
@@ -45,7 +45,7 @@ public class Main {
         System.out.println("get(7) = " + myArrayList1.get(7));
         System.out.println("isEmpty = " + myArrayList1.isEmpty());
         System.out.println("size = " + myArrayList1.size());
-        System.out.println("Remove " + myArrayList1.remove("-3"));
+        System.out.println("Remove " + myArrayList1.remove(14));
         System.out.println(myArrayList1);
     }
 }

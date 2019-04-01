@@ -6,10 +6,10 @@ public class MyArrayList<T> implements MyList<T> {
     private T[] array;
     private int size;
     private int capacity;
+    private static final int INITIAL_CAPACITY = 10;
 
     public MyArrayList() {
-        size = 0;
-        capacity = 10;
+        capacity = INITIAL_CAPACITY;
         array = (T[]) new Object[capacity];
     }
 
@@ -106,6 +106,6 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public String toString() {
-        return Arrays.toString(array);
+        return Arrays.toString(Arrays.copyOf(array, size()));
     }
 }

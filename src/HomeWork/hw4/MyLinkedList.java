@@ -5,10 +5,6 @@ public class MyLinkedList<T> implements MyList<T> {
     private Node<T> lastNode;
     private int size;
 
-    public MyLinkedList() {
-        size = 0;
-    }
-
     @Override
     public void add(T value) {
         Node<T> addNode;
@@ -82,9 +78,9 @@ public class MyLinkedList<T> implements MyList<T> {
     }
 
     @Override
-    public T remove(int index) {
+    public T remove(int index) throws Exception {
         if (size == 0) {
-            throw new NegativeArraySizeException();
+            throw new Exception("There is nothing to delete (size = 0)");
         }
         Node<T> removeNode = getNode(index);
         if (index == 0) {
@@ -111,7 +107,11 @@ public class MyLinkedList<T> implements MyList<T> {
                 return null;
             }
         }
-        remove(currentIndex);
+        try {
+            remove(currentIndex);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return removeNode.value;
     }
 
