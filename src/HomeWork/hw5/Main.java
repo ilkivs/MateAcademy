@@ -16,13 +16,14 @@ public class Main {
         myHashMap.put("Vova10", 10);
         System.out.println(myHashMap);
 
+        System.out.println("put(Misha, 10000): ");
+        myHashMap.put("Misha", 10000);
+
         System.out.println("get(Misha): " + myHashMap.get("Misha"));
         System.out.println("remove(Vova6): " + myHashMap.remove("Vova6"));
         System.out.println("remove(Vova5): " + myHashMap.remove("Vova5"));
         System.out.println("remove(Vova4): " + myHashMap.remove("Vova4"));
         System.out.println("remove(Vova1): " + myHashMap.remove("Vova1"));
-        System.out.println("put(Misha, 10000): ");
-        myHashMap.put("Misha", 10000);
         System.out.println(myHashMap);
 
         System.out.println("Clear myHashMap: ");

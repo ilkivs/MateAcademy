@@ -61,21 +61,24 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
             return null;
         }
         Node<K, V> currentNode = nodes[position];
-        Node<K, V> previousNode = currentNode;
-        while (currentNode != null) {
-            if (currentNode.key == key) {
-                if (currentNode.equals(previousNode)) {
-                    nodes[position] = null;
-                    if (currentNode.next != null) {
-                        nodes[position] = currentNode.next;
-                    }
-                }
-                previousNode.next = currentNode.next;
-                size--;
-                return currentNode.value;
+        if (currentNode.key == key) {
+            if (currentNode.next != null) {
+                nodes[position] = currentNode.next;
+            } else {
+                nodes[position] = null;
             }
-            previousNode = currentNode;
-            currentNode = currentNode.next;
+            size--;
+            return currentNode.value;
+        } else {
+            while (currentNode.next != null) {
+                if (currentNode.next.key == key) {
+                    V value = currentNode.next.value;
+                    currentNode.next = currentNode.next.next;
+                    size--;
+                    return value;
+                }
+                currentNode = currentNode.next;
+            }
         }
         return null;
     }
@@ -95,6 +98,7 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
 
     private int getHashCode(K key) {
         return Objects.hashCode(key);
+//        return 2;
     }
 
     private int getPosition(int hashCode) {
