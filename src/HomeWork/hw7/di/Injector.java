@@ -4,44 +4,57 @@ import HomeWork.hw7.dao.*;
 import HomeWork.hw7.factory.ClientDaoFactory;
 import HomeWork.hw7.factory.HumanDaoFactory;
 import HomeWork.hw7.handler.ConsoleHandler;
-import HomeWork.hw7.model.Human;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Injector {
 
-    public static void injectDependency() throws IllegalAccessException {
-        Class consoleHandlerClass = ConsoleHandler.class;
-        Class fileClientDaoClass = FileClientDao.class;
-        Class inMemoryClientDaoClass = InMemoryClientDao.class;
-        Class fileHumanDaoClass = FileHumanDao.class;
-        Class inMemoryHumanDaoClass = InMemoryHumanDao.class;
+    private static final List<Class> classList = new ArrayList<>();
 
-        Field[] fields = consoleHandlerClass.getDeclaredFields();
+    public static void injectDependency() throws IllegalAccessException {
+
+        initClassList();
+
+        Field[] fields = classList.get(0).getDeclaredFields();
         for (Field field : fields) {
             if (field.isAnnotationPresent(Inject.class)) {
                 field.setAccessible(true);
-                boolean clientFileDao = fileClientDaoClass.isAnnotationPresent(Component.class);
-                if (clientFileDao) {
-                    System.out.println("Work with files allowed (Client)");
+                boolean fileDao = false, inMemoryDao = false;
+                for (Class clazz : classList) {
+                    if (clazz.getSimpleName().equals("File" + field.getType().getSimpleName())) {
+                        fileDao = classList.get(classList.indexOf(clazz)).isAnnotationPresent(Component.class);
+                    }
+                    if (clazz.getSimpleName().equals("InMemory" + field.getType().getSimpleName())) {
+                        inMemoryDao = classList.get(classList.indexOf(clazz)).isAnnotationPresent(Component.class);
+                    }
                 }
-                boolean clientInMemoryDao = inMemoryClientDaoClass.isAnnotationPresent(Component.class);
-                if (clientInMemoryDao) {
-                    System.out.println("Work with RAM allowed (Client)");
+                if (fileDao) {
+                    System.out.println("Work with files allowed (" + field.getType().getSimpleName() + ")");
                 }
-                boolean humanFileDao = fileHumanDaoClass.isAnnotationPresent(Component.class);
-                if (humanFileDao) {
-                    System.out.println("Work with files allowed (Human)");
+                if (inMemoryDao) {
+                    System.out.println("Work with RAM allowed (" + field.getType().getSimpleName() + ")");
                 }
-                boolean humanInMemoryDao = inMemoryHumanDaoClass.isAnnotationPresent(Component.class);
-                if (humanInMemoryDao) {
-                    System.out.println("Work with RAM allowed (Human)");
+                switch (field.getType().getSimpleName()) {
+                    case "ClientDao":
+                        ClientDao clientDao = ClientDaoFactory.getClientDao(fileDao, inMemoryDao);
+                        field.set(null, clientDao);
+                        break;
+                    case "HumanDao":
+                        HumanDao humanDao = HumanDaoFactory.getHumanDao(fileDao, inMemoryDao);
+                        field.set(null, humanDao);
+                        break;
                 }
-                ClientDao clientDao = ClientDaoFactory.getClientDao(clientFileDao, clientInMemoryDao);
-                field.set(null, clientDao);
-                HumanDao humanDao = HumanDaoFactory.getHumanDao(humanFileDao, humanInMemoryDao);
-                field.set(null, humanDao);
             }
         }
+    }
+
+    private static void initClassList() {
+        classList.add(ConsoleHandler.class);
+        classList.add(FileClientDao.class);
+        classList.add(InMemoryClientDao.class);
+        classList.add(FileHumanDao.class);
+        classList.add(InMemoryHumanDao.class);
     }
 }

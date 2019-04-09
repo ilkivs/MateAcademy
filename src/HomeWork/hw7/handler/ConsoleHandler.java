@@ -12,31 +12,32 @@ public class ConsoleHandler {
 
     @Inject
     private static ClientDao clientDao;
-
+    @Inject
     private static HumanDao humanDao;
 
-    public static void handle(){
-        while (true){
+    public static void handle() {
+        while (true) {
             Scanner scanner = new Scanner(System.in);
-            System.out.println("What model do you want to use? 1 - Client, 2 - Human");
+            System.out.println("What model do you want to use? 1 - Client, 2 - Human, 0 - exit");
             int consoleChoice = scanner.nextInt();
-            switch (consoleChoice){
+            switch (consoleChoice) {
                 case 1:
                     addClientInfo(scanner);
                     break;
                 case 2:
                     addHumanInfo(scanner);
                     break;
+                case 0:
+                    return;
                 default:
                     System.out.println("Wrong data");
                     break;
             }
-
         }
     }
 
     private static void addHumanInfo(Scanner scanner) {
-        System.out.println("1 - add a human, 2 - get a human, 3 - exit");
+        System.out.println("1 - add a human, 2 - get a human");
         int consoleChoice = scanner.nextInt();
         switch (consoleChoice) {
             case 1:
@@ -51,13 +52,11 @@ public class ConsoleHandler {
             case 2:
                 System.out.println(humanDao.get());
                 break;
-            case 3:
-                return;
         }
     }
 
     private static void addClientInfo(Scanner scanner) {
-        System.out.println("1 - add a client, 2 - get a client, 3 - exit");
+        System.out.println("1 - add a client, 2 - get a client");
         int consoleChoice = scanner.nextInt();
         switch (consoleChoice) {
             case 1:
@@ -72,8 +71,6 @@ public class ConsoleHandler {
             case 2:
                 System.out.println(clientDao.get());
                 break;
-            case 3:
-                return;
         }
     }
 }
