@@ -1,4 +1,4 @@
-package HomeWork.hw9;
+package HomeWork.hw10;
 
 /*
     Task 3.

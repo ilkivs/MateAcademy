@@ -1,4 +1,4 @@
-package HomeWork.hw9.Robot;
+package HomeWork.hw10.Robot;
 
 public class RobotConnectionException extends RuntimeException {
 
