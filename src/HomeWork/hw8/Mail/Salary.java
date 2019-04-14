@@ -2,9 +2,9 @@ package HomeWork.hw8.Mail;
 
 public class Salary implements Sendable<Integer> {
 
-    private String from;
-    private String to;
-    private int content;
+    private final String from;
+    private final String to;
+    private final int content;
 
     public Salary(String from, String to, int content) {
         this.from = from;

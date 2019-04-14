@@ -16,7 +16,7 @@ public class MinMaxValue {
     public static <T> void findMinMax(Stream<? extends T> stream, Comparator<? super T> order,
                                       BiConsumer<? super T, ? super T> minMaxConsumer) {
 
-        List<T> streamList = stream.sorted(order).collect(Collectors.toList());
+        List<T> streamList = stream.collect(Collectors.toList());
 
         minMaxConsumer.accept(
                 streamList.stream().min(order).orElse(null),

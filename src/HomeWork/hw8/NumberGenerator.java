@@ -13,6 +13,9 @@ public class NumberGenerator {
     private static int index = 0;
 
     public static IntStream pseudoRandomStream(int seed) {
+        if (seed < 0) {
+            throw new IllegalArgumentException("Seed is less than 0");
+        }
         currentNumber = seed;
         return IntStream.generate(() -> mid(currentNumber, index++));
     }
@@ -21,18 +24,7 @@ public class NumberGenerator {
         if (index == 0) {
             return number;
         }
-        number *= number;
-        int first = 0, second = 0, third = 0;
-        if (number > 9) {
-            first = number % 100 / 10;
-        }
-        if (number > 99) {
-            second = number % 1000 / 100;
-        }
-        if (number > 999) {
-            third = number % 10000 / 1000;
-        }
-        currentNumber = third * 100 + second * 10 + first;
+        currentNumber = (int) Math.pow(number, 2) % 10000 / 10;
         return currentNumber;
     }
 }

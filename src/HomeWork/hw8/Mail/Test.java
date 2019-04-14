@@ -1,39 +1,45 @@
 package HomeWork.hw8.Mail;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
 public class Test {
 
-    public void test() {
-        String randomFrom = "MyRandomFromString";
-        String randomTo = "MyRandomToString";
-        int randomSalary = 1488;
+    private final String randomFrom = "MyRandomFromString";
+    private final String randomTo = "MyRandomToString";
+    private final int randomSalary = 1488;
+    private MailMessage firstMessage, secondMessage, thirdMessage;
+    private Salary salary1, salary2, salary3;
 
-        MailMessage firstMessage = new MailMessage(
+    public void startAllTests() {
+        initMessageTest();
+        MessageStreamTest();
+        SalaryStreamTest();
+    }
+
+    private void initMessageTest() {
+        firstMessage = new MailMessage(
                 "Robert Howard",
                 "H.P. Lovecraft",
                 "This \"The Shadow over Innsmouth\" story is real masterpiece, Howard!"
         );
-
-        assert firstMessage.getFrom().equals("Robert Howard") : "Wrong firstMessage from address";
-        assert firstMessage.getTo().equals("H.P. Lovecraft") : "Wrong firstMessage to address";
-        assert firstMessage.getContent().endsWith("Howard!") : "Wrong firstMessage content ending";
-
-        MailMessage secondMessage = new MailMessage(
+        secondMessage = new MailMessage(
                 "Jonathan Nolan",
                 "Christopher Nolan",
                 "Брат, почему все так хвалят только тебя, когда практически все сценарии написал я. Так не честно!"
         );
-
-        MailMessage thirdMessage = new MailMessage(
+        thirdMessage = new MailMessage(
                 "Stephen Hawking",
                 "Christopher Nolan",
                 "Я так и не понял Интерстеллар."
         );
+        assert firstMessage.getFrom().equals("Robert Howard") : "Wrong firstMessage from address";
+        assert firstMessage.getTo().equals("H.P. Lovecraft") : "Wrong firstMessage to address";
+        assert firstMessage.getContent().endsWith("Howard!") : "Wrong firstMessage content ending";
+    }
 
+    private void MessageStreamTest() {
         List<MailMessage> messages = Arrays.asList(firstMessage, secondMessage, thirdMessage);
         MailService<String> mailService = new MailService<>();
         messages.stream().forEachOrdered(mailService);
@@ -42,19 +48,19 @@ public class Test {
         assert mailBox.get("H.P. Lovecraft").equals(
                 Arrays.asList("This \"The Shadow over Innsmouth\" story is real masterpiece, Howard!")
         ) : "wrong mailService mailbox content (1)";
-
         assert mailBox.get("Christopher Nolan").equals(
                 Arrays.asList(
                         "Брат, почему все так хвалят только тебя, когда практически все сценарии написал я. Так не честно!",
                         "Я так и не понял Интерстеллар."
                 )
         ) : "wrong mailService mailbox content (2)";
+//        assert mailBox.get(randomTo).equals(Collections.<String>emptyList()) : "wrong mailService mailbox content (3)";
+    }
 
-        assert mailBox.get(randomTo).equals(Collections.<String>emptyList()) : "wrong mailService mailbox content (3)";
-
-        Salary salary1 = new Salary("Facebook", "Mark Zuckerberg", 1);
-        Salary salary2 = new Salary("FC Barcelona", "Lionel Messi", Integer.MAX_VALUE);
-        Salary salary3 = new Salary(randomFrom, randomTo, randomSalary);
+    private void SalaryStreamTest() {
+        salary1 = new Salary("Facebook", "Mark Zuckerberg", 1);
+        salary2 = new Salary("FC Barcelona", "Lionel Messi", Integer.MAX_VALUE);
+        salary3 = new Salary(randomFrom, randomTo, randomSalary);
 
         MailService<Integer> salaryService = new MailService<>();
         Arrays.asList(salary1, salary2, salary3).forEach(salaryService);

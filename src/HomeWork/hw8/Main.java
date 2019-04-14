@@ -12,9 +12,9 @@ public class Main {
 
         System.out.println("===== Task 1 =====");
 
-        System.out.println("assert test started");
-        new Test().test();
-        System.out.println("assert test finished");
+        System.out.println("assert tests started");
+        new Test().startAllTests();
+        System.out.println("assert tests finished");
 
         System.out.println("===== Task 2 =====");
 

@@ -2,9 +2,9 @@ package HomeWork.hw8.Mail;
 
 public class MailMessage implements Sendable<String> {
 
-    private String from;
-    private String to;
-    private String content;
+    private final String from;
+    private final String to;
+    private final String content;
 
     public MailMessage(String from, String to, String content) {
         this.from = from;

@@ -11,12 +11,7 @@ public class MailService<T> implements Consumer<Sendable<T>> {
     private Map<String, List<T>> mailBox;
 
     public MailService() {
-        mailBox = new HashMap<>() {
-            @Override
-            public List<T> get(Object key) {
-                return super.get(key) == null ? new ArrayList<>() : super.get(key);
-            }
-        };
+        mailBox = new HashMap<>();
     }
 
     public Map<String, List<T>> getMailBox() {
@@ -26,6 +21,9 @@ public class MailService<T> implements Consumer<Sendable<T>> {
     @Override
     public void accept(Sendable<T> sendable) {
         List<T> list = mailBox.get(sendable.getTo());
+        if (list == null) {
+            list = new ArrayList<>();
+        }
         list.add(sendable.getContent());
         mailBox.put(sendable.getTo(), list);
     }
