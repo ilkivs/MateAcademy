@@ -1,4 +1,4 @@
-package HomeWork.hw4;
+package main.java.HomeWork.hw4;
 
 import java.util.Arrays;
 
@@ -67,7 +67,7 @@ public class MyArrayList<T> implements MyList<T> {
     public T remove(int index) {
         isIndexCorrect(index);
         T removeItem = array[index];
-        System.arraycopy(array, index + 1, array, index, size - index -1);
+        System.arraycopy(array, index + 1, array, index, size - index - 1);
         array[size - 1] = null;
         size--;
         return removeItem;
@@ -93,7 +93,7 @@ public class MyArrayList<T> implements MyList<T> {
         return size == 0;
     }
 
-    public void isIndexCorrect(int index){
+    public void isIndexCorrect(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
         }

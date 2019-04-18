@@ -1,4 +1,4 @@
-package HomeWork.hw8.Mail;
+package main.java.HomeWork.hw9.Mail;
 
 import java.util.Arrays;
 import java.util.List;

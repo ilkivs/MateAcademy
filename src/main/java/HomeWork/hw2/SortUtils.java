@@ -1,12 +1,12 @@
-package HomeWork.hw2;
+package main.java.HomeWork.hw2;
 
 import java.util.Arrays;
+
+import static java.lang.System.arraycopy;
 
 /*
     Task 2.3
  */
-
-import static java.lang.System.arraycopy;
 
 public class SortUtils {
 

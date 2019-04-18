@@ -1,9 +1,9 @@
-package HomeWork.hw7.di;
+package main.java.HomeWork.hw7.di;
 
-import HomeWork.hw7.dao.*;
-import HomeWork.hw7.factory.ClientDaoFactory;
-import HomeWork.hw7.factory.HumanDaoFactory;
-import HomeWork.hw7.handler.ConsoleHandler;
+import main.java.HomeWork.hw7.dao.*;
+import main.java.HomeWork.hw7.factory.ClientDaoFactory;
+import main.java.HomeWork.hw7.factory.HumanDaoFactory;
+import main.java.HomeWork.hw7.handler.ConsoleHandler;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;

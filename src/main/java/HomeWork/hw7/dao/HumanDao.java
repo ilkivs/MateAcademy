@@ -1,6 +1,6 @@
-package HomeWork.hw7.dao;
+package main.java.HomeWork.hw7.dao;
 
-import HomeWork.hw7.model.Human;
+import main.java.HomeWork.hw7.model.Human;
 
 public interface HumanDao extends Dao {
     void save(Human client);

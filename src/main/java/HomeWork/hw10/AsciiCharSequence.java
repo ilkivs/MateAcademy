@@ -1,4 +1,4 @@
-package HomeWork.hw10;
+package main.java.HomeWork.hw10;
 
 /*
     Task 3.

@@ -1,4 +1,4 @@
-package HomeWork.hw7.service;
+package main.java.HomeWork.hw7.service;
 
 import java.io.IOException;
 import java.nio.file.Files;

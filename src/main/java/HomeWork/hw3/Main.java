@@ -1,7 +1,7 @@
-package HomeWork.hw3;
+package main.java.HomeWork.hw3;
 
-import HomeWork.hw3.task1.MergeSort;
-import HomeWork.hw3.task2.StagePlay;
+import main.java.HomeWork.hw3.task1.MergeSort;
+import main.java.HomeWork.hw3.task2.StagePlay;
 
 public class Main {
 

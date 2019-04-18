@@ -1,7 +1,7 @@
-package HomeWork.hw7.factory;
+package main.java.HomeWork.hw7.factory;
 
-import HomeWork.hw7.dao.Dao;
-import HomeWork.hw7.service.PropertyLoader;
+import main.java.HomeWork.hw7.dao.Dao;
+import main.java.HomeWork.hw7.service.PropertyLoader;
 
 import java.io.IOException;
 

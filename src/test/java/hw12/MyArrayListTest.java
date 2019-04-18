@@ -1,8 +1,9 @@
-package HomeWork.hw12;
+package test.java.hw12;
 
 import junit.framework.Assert;
 import junit.framework.TestCase;
 import org.junit.jupiter.api.Test;
+
 
 public class MyArrayListTest extends Assert {
 

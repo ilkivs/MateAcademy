@@ -1,4 +1,4 @@
-package HomeWork.hw1;
+package main.java.HomeWork.hw1;
 
 /*
     Task 1.7

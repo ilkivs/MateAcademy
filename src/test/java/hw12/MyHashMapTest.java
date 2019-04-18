@@ -1,4 +1,4 @@
-package HomeWork.hw12;
+package test.java.hw12;
 
 import junit.framework.TestCase;
 

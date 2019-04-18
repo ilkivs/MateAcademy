@@ -1,4 +1,4 @@
-package HomeWork.hw7.model;
+package main.java.HomeWork.hw7.model;
 
 import java.io.Serializable;
 

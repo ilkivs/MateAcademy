@@ -1,4 +1,4 @@
-package HomeWork.hw4;
+package main.java.HomeWork.hw4;
 
 public class MyLinkedList<T> implements MyList<T> {
     private Node<T> firstNode;
@@ -103,7 +103,7 @@ public class MyLinkedList<T> implements MyList<T> {
         while (removeNode.value != t) {
             removeNode = removeNode.next;
             currentIndex++;
-            if (currentIndex>size-2){
+            if (currentIndex > size - 2) {
                 return null;
             }
         }

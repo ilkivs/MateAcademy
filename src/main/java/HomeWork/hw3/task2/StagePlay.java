@@ -1,4 +1,4 @@
-package HomeWork.hw3.task2;
+package main.java.HomeWork.hw3.task2;
 
 /*
     Task 2

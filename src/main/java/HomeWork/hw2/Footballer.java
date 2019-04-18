@@ -1,4 +1,4 @@
-package HomeWork.hw2;
+package main.java.HomeWork.hw2;
 
 /*
     Task 2.4

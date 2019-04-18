@@ -1,4 +1,4 @@
-package HomeWork.hw3.task1;
+package main.java.HomeWork.hw3.task1;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -68,7 +68,7 @@ public class MergeSort {
         System.out.println(Arrays.toString(resultArray));
     }
 
-    private int[] createArray(){
+    private int[] createArray() {
         Random r = new Random();
         int arrSize = r.nextInt(RANDOM_BOUND_FOR_ARRAYS);
         int[] array = new int[arrSize];

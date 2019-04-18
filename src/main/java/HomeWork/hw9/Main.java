@@ -1,6 +1,6 @@
-package HomeWork.hw8;
+package main.java.HomeWork.hw9;
 
-import HomeWork.hw8.Mail.Test;
+import main.java.HomeWork.hw9.Mail.Test;
 
 import java.util.Arrays;
 import java.util.Comparator;
