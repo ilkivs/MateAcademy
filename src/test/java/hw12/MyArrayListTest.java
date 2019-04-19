@@ -1,4 +1,4 @@
-package test.java.hw12;
+package hw12;
 
 import junit.framework.Assert;
 import junit.framework.TestCase;

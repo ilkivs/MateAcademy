@@ -1,4 +1,4 @@
-package main.java.HomeWork.hw5;
+package HomeWork.hw5;
 
 public class Main {
     public static void main(String[] args) {

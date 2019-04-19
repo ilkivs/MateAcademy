@@ -1,4 +1,4 @@
-package main.java.HomeWork.hw4;
+package HomeWork.hw4;
 
 public interface MyList<T> {
 

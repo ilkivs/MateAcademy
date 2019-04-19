@@ -1,4 +1,4 @@
-package main.java.HomeWork.hw9.Mail;
+package HomeWork.hw9.Mail;
 
 public class MailMessage implements Sendable<String> {
 

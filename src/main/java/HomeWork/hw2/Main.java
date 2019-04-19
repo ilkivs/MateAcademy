@@ -1,4 +1,4 @@
-package main.java.HomeWork.hw2;
+package HomeWork.hw2;
 
 import java.util.Arrays;
 

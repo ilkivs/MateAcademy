@@ -1,8 +1,8 @@
-package main.java.HomeWork.hw7.factory;
+package HomeWork.hw7.factory;
 
-import main.java.HomeWork.hw7.dao.ClientDao;
-import main.java.HomeWork.hw7.dao.FileClientDao;
-import main.java.HomeWork.hw7.dao.InMemoryClientDao;
+import HomeWork.hw7.dao.ClientDao;
+import HomeWork.hw7.dao.FileClientDao;
+import HomeWork.hw7.dao.InMemoryClientDao;
 
 public class ClientDaoFactory {
 

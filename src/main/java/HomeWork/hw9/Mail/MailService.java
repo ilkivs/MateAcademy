@@ -1,4 +1,4 @@
-package main.java.HomeWork.hw9.Mail;
+package HomeWork.hw9.Mail;
 
 import java.util.ArrayList;
 import java.util.HashMap;

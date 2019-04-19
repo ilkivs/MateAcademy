@@ -1,4 +1,4 @@
-package main.java.HomeWork.hw5;
+package HomeWork.hw5;
 
 import java.util.Objects;
 

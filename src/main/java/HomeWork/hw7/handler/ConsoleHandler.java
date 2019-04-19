@@ -1,10 +1,10 @@
-package main.java.HomeWork.hw7.handler;
+package HomeWork.hw7.handler;
 
-import main.java.HomeWork.hw7.dao.ClientDao;
-import main.java.HomeWork.hw7.dao.HumanDao;
-import main.java.HomeWork.hw7.di.Inject;
-import main.java.HomeWork.hw7.model.Client;
-import main.java.HomeWork.hw7.model.Human;
+import HomeWork.hw7.dao.ClientDao;
+import HomeWork.hw7.dao.HumanDao;
+import HomeWork.hw7.di.Inject;
+import HomeWork.hw7.model.Client;
+import HomeWork.hw7.model.Human;
 
 import java.util.Scanner;
 

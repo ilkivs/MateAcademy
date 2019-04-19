@@ -1,8 +1,8 @@
-package main.java.HomeWork.hw7.factory;
+package HomeWork.hw7.factory;
 
-import main.java.HomeWork.hw7.dao.FileHumanDao;
-import main.java.HomeWork.hw7.dao.HumanDao;
-import main.java.HomeWork.hw7.dao.InMemoryHumanDao;
+import HomeWork.hw7.dao.FileHumanDao;
+import HomeWork.hw7.dao.HumanDao;
+import HomeWork.hw7.dao.InMemoryHumanDao;
 
 public class HumanDaoFactory {
     private static final HumanDao fileDao = new FileHumanDao();

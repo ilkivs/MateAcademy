@@ -1,6 +1,6 @@
-package test.java.hw12;
+package hw12;
 
-import junit.framework.TestCase;
+import junit.framework.Assert;
 
-public class MyLinkedListTest extends TestCase {
+public class MyLinkedListTest extends Assert {
 }

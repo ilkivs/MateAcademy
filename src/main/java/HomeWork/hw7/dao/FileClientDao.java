@@ -1,7 +1,7 @@
-package main.java.HomeWork.hw7.dao;
+package HomeWork.hw7.dao;
 
-import main.java.HomeWork.hw7.di.Component;
-import main.java.HomeWork.hw7.model.Client;
+import HomeWork.hw7.di.Component;
+import HomeWork.hw7.model.Client;
 
 import java.io.*;
 

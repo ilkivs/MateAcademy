@@ -1,4 +1,4 @@
-package main.java.HomeWork.hw7;
+package HomeWork.hw7;
 
 import HomeWork.hw7.di.Injector;
 import HomeWork.hw7.handler.ConsoleHandler;

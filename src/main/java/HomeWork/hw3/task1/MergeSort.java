@@ -1,4 +1,4 @@
-package main.java.HomeWork.hw3.task1;
+package HomeWork.hw3.task1;
 
 import java.util.Arrays;
 import java.util.Random;

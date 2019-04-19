@@ -1,4 +1,4 @@
-package main.java.HomeWork.hw9;
+package HomeWork.hw9;
 
 import java.util.stream.IntStream;
 
