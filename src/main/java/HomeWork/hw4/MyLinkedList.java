@@ -84,6 +84,12 @@ public class MyLinkedList<T> implements MyList<T> {
         }
         Node<T> removeNode = getNode(index);
         if (index == 0) {
+            if (size == 1) {
+                firstNode = null;
+                lastNode = null;
+                size--;
+                return removeNode.value;
+            }
             firstNode = removeNode.next;
             firstNode.prev = null;
         } else if (index == size - 1) {
@@ -93,6 +99,7 @@ public class MyLinkedList<T> implements MyList<T> {
             removeNode.next.prev = removeNode.prev;
             removeNode.prev.next = removeNode.next;
         }
+        size--;
         return removeNode.value;
     }
 
