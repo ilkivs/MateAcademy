@@ -93,7 +93,7 @@ public class MyArrayList<T> implements MyList<T> {
         return size == 0;
     }
 
-    public void isIndexCorrect(int index) {
+    private void isIndexCorrect(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
         }
